@@ -3,11 +3,11 @@ import {
   Outlet,
   ScrollRestoration,
   useNavigation,
-} from "react-router-dom"
+} from "react-router-dom";
 
 export function RootLayout() {
-  const { state } = useNavigation()
-  const isLoading = state === "loading"
+  const { state } = useNavigation();
+  const isLoading = state === "loading";
 
   return (
     <>
@@ -26,10 +26,15 @@ export function RootLayout() {
         </ul>
       </nav>
       <ScrollRestoration />
-      {isLoading && <div className="loading-spinner" />}
-      <div className={`container ${isLoading ? "loading" : ""}`}>
+      {isLoading && (
+        <div className="loading-spinner" data-testid="loading-spinner" />
+      )}
+      <div
+        className={`container ${isLoading ? "loading" : ""}`}
+        data-testid="container"
+      >
         <Outlet />
       </div>
     </>
-  )
+  );
 }

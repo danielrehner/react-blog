@@ -1,12 +1,12 @@
-import { createBrowserRouter, Navigate, useRouteError } from "react-router-dom"
-import { RootLayout } from "./layouts/RootLayout"
-import { postRoute } from "./pages/Post"
-import { postListRoute } from "./pages/PostList"
-import { todoListRoute } from "./pages/TodoList"
-import { userRoute } from "./pages/User"
-import { userListRoute } from "./pages/UserList"
+import { Navigate, useRouteError } from "react-router-dom";
+import { RootLayout } from "./layouts/RootLayout";
+import { postRoute } from "./pages/Post";
+import { postListRoute } from "./pages/PostList";
+import { todoListRoute } from "./pages/TodoList";
+import { userRoute } from "./pages/User";
+import { userListRoute } from "./pages/UserList";
 
-export const router = createBrowserRouter([
+export const routes = [
   {
     path: "/",
     element: <RootLayout />,
@@ -38,10 +38,10 @@ export const router = createBrowserRouter([
       },
     ],
   },
-])
+];
 
 function ErrorPage() {
-  const error = useRouteError()
+  const error = useRouteError();
 
   return (
     <>
@@ -53,5 +53,5 @@ function ErrorPage() {
         </>
       )}
     </>
-  )
+  );
 }
